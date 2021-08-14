@@ -3,8 +3,11 @@ body {
 }
 
 .container {
+  background-color: #88E0FF;
+}
+
+.container__letras {
   position: relative;
-  background-color: palegoldenrod;
   padding: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,6 +16,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  z-index: 0;
+  -webkit-animation: tiltAll 1s 8.45s;
+          animation: tiltAll 1s 8.45s;
 }
 
 /********************* inicio F ********************/
@@ -26,7 +32,7 @@ body {
 .f__parte1--1 {
   width: 180px;
   height: 60px;
-  background-color: palegoldenrod;
+  background-color: #88E0FF;
   -webkit-animation: f1 1s;
           animation: f1 1s;
   -webkit-animation-fill-mode: forwards;
@@ -40,14 +46,81 @@ body {
   height: 0px;
   -webkit-animation: moveToRight 1s ease-in;
           animation: moveToRight 1s ease-in;
+  z-index: 1;
+}
+
+.f__flechafinal img {
+  position: absolute;
+  height: 0px;
+  top: 168px;
+  left: 950px;
+  z-index: 2;
+  -webkit-animation: flechaIzquierda 1s 7s;
+          animation: flechaIzquierda 1s 7s;
+}
+
+@-webkit-keyframes flechaIzquierda {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    height: 124px;
+  }
+  100% {
+    -webkit-transform: translateX(-1200px);
+            transform: translateX(-1200px);
+    height: 124px;
+  }
+}
+
+@keyframes flechaIzquierda {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    height: 124px;
+  }
+  100% {
+    -webkit-transform: translateX(-1200px);
+            transform: translateX(-1200px);
+    height: 124px;
+  }
+}
+
+@-webkit-keyframes fAppear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+  36% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fAppear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+  36% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes f1 {
   0% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   50% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   51% {
     background-color: #3E3089;
@@ -59,10 +132,10 @@ body {
 
 @keyframes f1 {
   0% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   50% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   51% {
     background-color: #3E3089;
@@ -162,7 +235,7 @@ body {
 .f__parte2--vertical {
   width: 60px;
   height: 200px;
-  background-color: palegoldenrod;
+  background-color: #88E0FF;
   -webkit-animation: f2v 1s 2s;
           animation: f2v 1s 2s;
   -webkit-animation-fill-mode: forwards;
@@ -171,10 +244,10 @@ body {
 
 @-webkit-keyframes f2v {
   0% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   30% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   31% {
     background-color: #3E3089;
@@ -186,10 +259,10 @@ body {
 
 @keyframes f2v {
   0% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   30% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   31% {
     background-color: #3E3089;
@@ -204,10 +277,16 @@ body {
   width: 110px;
   height: 60px;
   background-color: #3E3089;
+  opacity: 0;
+  -webkit-animation: fAppear 1s 7s;
+          animation: fAppear 1s 7s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 /************* fin F / inicio ed********************/
 .ed {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -218,15 +297,174 @@ body {
   width: 300px;
 }
 
-.ed img {
+.ed > img {
   width: 300px;
+  opacity: 0;
+  -webkit-animation: edAppear 1s 6s;
+          animation: edAppear 1s 6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.ed__flecha img {
+  position: absolute;
+  width: 0;
+  left: 215px;
+  top: -300px;
+  -webkit-animation: moveDown 1s 4s;
+          animation: moveDown 1s 4s;
+  z-index: 0;
+}
+
+.ed__rectangulo {
+  position: absolute;
+  top: 0;
+  left: 250px;
+  width: 55px;
+  height: 260px;
+  -webkit-animation: ev 1s 4s;
+          animation: ev 1s 4s;
+  background-color: #88E0FF;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  z-index: 0;
+}
+
+@-webkit-keyframes ev {
+  0% {
+    background-color: #88E0FF;
+  }
+  25% {
+    background-color: #88E0FF;
+  }
+  26% {
+    background-color: #3E3089;
+  }
+  100% {
+    background-color: #3E3089;
+  }
+}
+
+@keyframes ev {
+  0% {
+    background-color: #88E0FF;
+  }
+  25% {
+    background-color: #88E0FF;
+  }
+  26% {
+    background-color: #3E3089;
+  }
+  100% {
+    background-color: #3E3089;
+  }
+}
+
+.ed__flecha1 {
+  position: absolute;
+  width: 0;
+  left: -70px;
+  top: -600px;
+  -webkit-animation: moveDown2 1s 6s;
+          animation: moveDown2 1s 6s;
+}
+
+.ed__flecha2 {
+  position: absolute;
+  width: 0;
+  left: 50px;
+  top: 300px;
+  -webkit-animation: moveUp2 1s 6s;
+          animation: moveUp2 1s 6s;
+}
+
+@-webkit-keyframes edAppear {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  26% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes edAppear {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  26% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes moveDown2 {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    width: 250px;
+  }
+  100% {
+    -webkit-transform: translateY(900px);
+            transform: translateY(900px);
+    width: 300px;
+  }
+}
+
+@keyframes moveDown2 {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    width: 250px;
+  }
+  100% {
+    -webkit-transform: translateY(900px);
+            transform: translateY(900px);
+    width: 300px;
+  }
+}
+
+@-webkit-keyframes moveUp2 {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    width: 300px;
+  }
+  100% {
+    -webkit-transform: translateY(-900px);
+            transform: translateY(-900px);
+    width: 300px;
+  }
+}
+
+@keyframes moveUp2 {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    width: 300px;
+  }
+  100% {
+    -webkit-transform: translateY(-900px);
+            transform: translateY(-900px);
+    width: 300px;
+  }
 }
 
 /************* fin ed / inicio E********************/
 .e {
   width: 60px;
   height: 260px;
-  background-color: palegoldenrod;
+  background-color: #88E0FF;
   -webkit-animation: e1 1s 1s;
           animation: e1 1s 1s;
   -webkit-animation-fill-mode: forwards;
@@ -240,6 +478,84 @@ body {
   width: 0px;
   -webkit-animation: moveToTop 1s 1s;
           animation: moveToTop 1s 1s;
+}
+
+.e__flecha--left {
+  position: absolute;
+  width: 0;
+  top: 68px;
+  left: 800px;
+  -webkit-animation: moveToLeft 1s 5s;
+          animation: moveToLeft 1s 5s;
+}
+
+.e__horizontal {
+  position: absolute;
+  height: 60px;
+  width: 120px;
+  left: 600px;
+  background-color: #EF7926;
+  opacity: 0;
+  -webkit-animation: eh 1s 5s;
+          animation: eh 1s 5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes eh {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  21% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes eh {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  21% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes moveToLeft {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    width: 290px;
+  }
+  100% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    width: 290px;
+  }
+}
+
+@keyframes moveToLeft {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    width: 290px;
+  }
+  100% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    width: 290px;
+  }
 }
 
 @-webkit-keyframes moveToTop {
@@ -270,10 +586,10 @@ body {
 
 @-webkit-keyframes e1 {
   0% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   20% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   21% {
     background-color: #EF7926;
@@ -285,10 +601,10 @@ body {
 
 @keyframes e1 {
   0% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   20% {
-    background-color: palegoldenrod;
+    background-color: #88E0FF;
   }
   21% {
     background-color: #EF7926;
@@ -300,6 +616,7 @@ body {
 
 /************* fin E / inicio ex********************/
 .ex {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -310,7 +627,7 @@ body {
   width: 275px;
 }
 
-.ex img {
+.ex .ex__img {
   width: 275px;
   opacity: 0;
   -webkit-animation: ex__1 1s 3s;
@@ -326,6 +643,74 @@ body {
   height: 0px;
   -webkit-animation: moveToRight-EX 1s 3s;
           animation: moveToRight-EX 1s 3s;
+}
+
+.ex .ultimaflecha1 {
+  position: absolute;
+  width: 140px;
+  top: 128px;
+  opacity: 0;
+  z-index: 2;
+  -webkit-animation: FlechaAparece .5s 9.4s;
+          animation: FlechaAparece .5s 9.4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes FlechaAparece {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes FlechaAparece {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.ex .ultimaflecha2 {
+  position: absolute;
+  width: 140px;
+  top: 128px;
+  left: -750px;
+  -webkit-animation: RightUltima .5s 8s;
+          animation: RightUltima .5s 8s;
+  opacity: 0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes RightUltima {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(751px);
+            transform: translateX(751px);
+    opacity: 1;
+  }
+}
+
+@keyframes RightUltima {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(751px);
+            transform: translateX(751px);
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes moveToRight-EX {
@@ -383,4 +768,36 @@ body {
     opacity: 1;
   }
 }
+
+@-webkit-keyframes tiltAll {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes tiltAll {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+/***************Final*****************/
 /*# sourceMappingURL=styles.css.map */

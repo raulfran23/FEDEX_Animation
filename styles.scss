@@ -1,19 +1,23 @@
 $morado: #3E3089;
 $naranja: #EF7926;
-$fondo: palegoldenrod;
+$fondo: #88E0FF;
 
 body {
     padding: 100px;
 }
 
 .container {
+    background-color: $fondo;
+}
+
+.container__letras {
     position: relative;
-    background-color: palegoldenrod;
     padding: 100px;  
     display: flex;
     flex-direction: row;
+    z-index: 0;
+    animation: tiltAll 1s 8.45s;
 }
-
 /********************* inicio F ********************/
 
 .f {
@@ -36,6 +40,42 @@ body {
     left: -120px;
     height: 0px;
     animation: moveToRight 1s ease-in;
+    z-index: 1;
+}
+
+.f__flechafinal img {
+    position: absolute;
+    height: 0px;
+    top: 168px;
+    left: 950px;
+    z-index: 2;
+    animation: flechaIzquierda 1s 7s;
+}
+
+@keyframes flechaIzquierda {
+    0% {
+        transform: translateX(0px);
+        height: 124px;
+    }
+    100% {
+        transform: translateX(-1200px);
+        height: 124px;
+    }
+}
+
+@keyframes fAppear {
+    0% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 0;
+    }
+    36% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes f1 {
@@ -126,20 +166,115 @@ body {
     width: 110px;
     height: 60px;
     background-color: $morado;
+    opacity: 0;
+    animation: fAppear 1s 7s;
+    animation-fill-mode: forwards;
 }
 
 /************* fin F / inicio ed********************/
 
 .ed {
+    position: relative;
     display: flex;
     flex-direction: column-reverse;
     width: 300px;
 }
 
-.ed img {
+.ed > img {
     width: 300px;
+    opacity: 0;
+    animation: edAppear 1s 6s;
+    animation-fill-mode: forwards;
 }
 
+.ed__flecha img {
+    position: absolute;
+    width: 0;
+    left: 215px;
+    top: -300px;
+    animation: moveDown 1s 4s;
+    z-index: 0;
+}
+
+.ed__rectangulo {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: 55px;
+    height: 260px;
+    animation: ev 1s 4s;
+    background-color: $fondo;
+    animation-fill-mode: forwards;
+    z-index: 0;
+}
+
+@keyframes ev {
+    0% {
+        background-color: $fondo;
+    }
+    25% {
+        background-color: $fondo;
+    }
+    26% {
+        background-color: $morado;
+    }
+    100% {
+        background-color: $morado;
+    }
+}
+
+.ed__flecha1 {
+    position: absolute;
+    width: 0;
+    left: -70px;
+    top: -600px;
+    animation: moveDown2 1s 6s;
+}
+
+.ed__flecha2 {
+    position: absolute;
+    width: 0;
+    left: 50px;
+    top: 300px;
+    animation: moveUp2 1s 6s;
+}
+
+@keyframes edAppear {
+    0% {
+       opacity: 0;
+     }
+    25% {
+       opacity: 0;
+     }
+    26% {
+       opacity: 1;
+     }
+    100% {
+       opacity: 1;
+     }
+}
+
+@keyframes moveDown2 {
+    0% {
+       transform: translateY(0px);
+       width: 250px;
+     }
+    100% {
+       transform: translateY(900px);
+       width: 300px;
+     }
+}
+
+@keyframes moveUp2 {
+    0% {
+       transform: translateY(0px);
+       width: 300px;
+     }
+    100% {
+       transform: translateY(-900px);
+       width: 300px;
+     }
+}
 /************* fin ed / inicio E********************/
 
 .e {
@@ -156,6 +291,55 @@ body {
     left: 548px;
     width: 0px;
     animation: moveToTop 1s 1s;
+}
+
+.e__flecha--left {
+    position: absolute;
+    width: 0;
+    top: 68px;
+    left: 800px;
+    animation: moveToLeft 1s 5s;
+}
+
+.e__horizontal {
+    position: absolute;
+    height: 60px;
+    width: 120px;
+    left: 600px;
+    background-color: $naranja;
+    opacity: 0;
+    animation: eh 1s 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes eh {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    21% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveToLeft {
+    0% {
+       transform: translateX(0px);
+       width: 290px;
+     }
+     
+    100% {
+       transform: translateX(-1000px);
+       width: 290px;
+     }
 }
 
 @keyframes moveToTop {
@@ -191,12 +375,13 @@ body {
 /************* fin E / inicio ex********************/
 
 .ex {
+    position: relative;
     display: flex;
     flex-direction: column-reverse;
     width: 275px;
 }
 
-.ex img {
+.ex .ex__img {
     width: 275px;
     opacity: 0;
     animation: ex__1 1s 3s;
@@ -209,6 +394,46 @@ body {
     left: -500px;
     height: 0px;
     animation: moveToRight-EX 1s 3s;
+}
+
+.ex .ultimaflecha1 {
+    position: absolute;
+    width: 140px;
+    top: 128px;
+    opacity: 0;
+    z-index: 2;
+    animation: FlechaAparece .5s 9.4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes FlechaAparece {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.ex .ultimaflecha2 {
+    position: absolute;
+    width: 140px;
+    top: 128px;
+    left: -750px;
+    animation: RightUltima .5s 8s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes RightUltima {
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(751px);
+        opacity: 1;
+    }
 }
 
 @keyframes moveToRight-EX {
@@ -239,3 +464,18 @@ body {
        opacity: 1;
      }
 }
+
+
+@keyframes tiltAll {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+/***************Final*****************/
+
